@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.AppCompatTextView
@@ -23,6 +24,7 @@ class LogInFragment : Fragment() {
     lateinit var tvUserName: AppCompatEditText
     lateinit var tvPassword: AppCompatEditText
     lateinit var btLogIn: AppCompatButton
+    lateinit var progressBar: ProgressBar
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,11 +37,13 @@ class LogInFragment : Fragment() {
         tvUserName = view.findViewById(R.id.user_name)
         tvPassword = view.findViewById(R.id.password)
         btLogIn = view.findViewById(R.id.log_in)
+        progressBar = view.findViewById(R.id.progress_bar)
         val tvWarning: AppCompatTextView = view.findViewById(R.id.warning_text)
 
 //        Adding click listener to button
         btLogIn.setOnClickListener {
             if (tvUserName.text!!.isNotEmpty() && tvPassword.text!!.isNotEmpty()) {
+                progressBar.visibility = View.VISIBLE
                 logIn()
             } else {
                 tvWarning.visibility = View.VISIBLE

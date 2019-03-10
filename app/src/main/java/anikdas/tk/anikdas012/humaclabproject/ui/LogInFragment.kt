@@ -43,6 +43,7 @@ class LogInFragment : Fragment() {
 //        Adding click listener to button
         btLogIn.setOnClickListener {
             if (tvUserName.text!!.isNotEmpty() && tvPassword.text!!.isNotEmpty()) {
+                tvWarning.visibility = View.GONE
                 progressBar.visibility = View.VISIBLE
                 logIn()
             } else {

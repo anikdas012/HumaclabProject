@@ -30,7 +30,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     /**
      * This method will be called when map is ready
      */
-    override fun onMapReady(p0: GoogleMap?) {
-        
+    override fun onMapReady(googleMap: GoogleMap?) {
+
     }
 }

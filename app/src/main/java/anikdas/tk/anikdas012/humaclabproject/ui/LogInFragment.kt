@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.AppCompatTextView
@@ -86,9 +87,11 @@ class LogInFragment : Fragment() {
         val request = object : StringRequest(Request.Method.POST, url,
                                 Response.Listener { response ->
                                     Log.d(LOG_TAG, "onResponse: ${response}")
+                                    progressBar.visibility = View.GONE
                                 },
                                 Response.ErrorListener {error ->
                                     Log.d(LOG_TAG, "onError: ${error.message}")
+                                    progressBar.visibility = View.GONE
                                 }) {
             override fun getHeaders(): MutableMap<String, String> {
                 val header: HashMap<String, String> = HashMap()

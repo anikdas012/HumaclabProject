@@ -34,6 +34,7 @@ class LogInFragment : Fragment() {
     lateinit var btLogIn: AppCompatButton
     lateinit var progressBar: ProgressBar
     lateinit var  mRequest: RequestQueue
+    lateinit var tvWarning: AppCompatTextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,7 +49,7 @@ class LogInFragment : Fragment() {
         tvPassword = view.findViewById(R.id.password)
         btLogIn = view.findViewById(R.id.log_in)
         progressBar = view.findViewById(R.id.progress_bar)
-        val tvWarning: AppCompatTextView = view.findViewById(R.id.warning_text)
+        tvWarning = view.findViewById(R.id.warning_text)
 
 //        Adding click listener to button
         btLogIn.setOnClickListener {
@@ -92,6 +93,7 @@ class LogInFragment : Fragment() {
                                 Response.ErrorListener {error ->
                                     Log.d(LOG_TAG, "onError: ${error.message}")
                                     progressBar.visibility = View.GONE
+                                    tvWarning.text = "Incorrect username or password"
                                 }) {
             override fun getHeaders(): MutableMap<String, String> {
                 val header: HashMap<String, String> = HashMap()

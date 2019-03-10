@@ -1,6 +1,7 @@
 package anikdas.tk.anikdas012.humaclabproject.ui
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Base64
 import android.util.Log
@@ -108,9 +109,8 @@ class LogInFragment : Fragment() {
             override fun parseNetworkResponse(response: NetworkResponse?): Response<String> {
                 if (response!!.statusCode == HttpURLConnection.HTTP_ACCEPTED) {
                     Log.d(LOG_TAG, "parseNetworkResponse: ${response.statusCode}")
-                    activity!!.supportFragmentManager.beginTransaction()
-                        .replace(R.id.place_holder, MapFragment(), "Map_Fragment")
-                        .commit()
+                    val mapIntent = Intent(context, MapActivity::class.java)
+                    startActivity(mapIntent)
                 }
                 return super.parseNetworkResponse(response)
             }

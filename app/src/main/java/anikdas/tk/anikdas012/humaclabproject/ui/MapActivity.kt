@@ -23,7 +23,8 @@ import com.google.android.gms.maps.model.Marker
  */
 
 
-class MapActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener,
+    GoogleMap.OnMyLocationClickListener {
 
     lateinit var map: GoogleMap
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
@@ -100,5 +101,15 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
      * This method will show user's current location
      */
     fun showCurrentLocation(location: Location) {
+    }
+
+
+
+    override fun onMyLocationClick(p0: Location) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onMyLocationButtonClick(): Boolean {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

@@ -34,6 +34,11 @@ class LogInFragment : Fragment() {
         tvPassword = view.findViewById(R.id.password)
         btLogIn = view.findViewById(R.id.log_in)
 
+//        Adding click listener to button
+        btLogIn.setOnClickListener {
+            logIn()
+        }
+
         return view
     }
 

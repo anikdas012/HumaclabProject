@@ -24,7 +24,7 @@
 			    android:textColor="@color/colorWhite"
 			    android:textColorHint="@color/colorHint"
 			    android:fontFamily="@font/sniglet_regular"
-			    android:textSize="18sp"
+			    android:textSize="20sp"
 			    android:layout_marginBottom="5dp"/>
 
 	    <androidx.appcompat.widget.AppCompatEditText
@@ -33,11 +33,10 @@
 			    android:id="@+id/password"
 			    android:hint="Password"
 			    android:inputType="numberPassword"
-			    android:layout_marginBottom="5dp"
 			    android:textColor="@color/colorWhite"
 			    android:textColorHint="@color/colorHint"
 			    android:fontFamily="@font/sniglet_regular"
-			    android:textSize="18sp"/>
+			    android:textSize="20sp"/>
 
 	    <androidx.appcompat.widget.AppCompatButton
 			    android:layout_width="match_parent"
@@ -49,7 +48,7 @@
 			    android:fontFamily="@font/sniglet_regular"
 			    android:textAllCaps="false"
 			    android:textColor="@color/colorWhite"
-			    android:layout_marginTop="5dp"/>
+			    android:layout_marginTop="10dp"/>
     </LinearLayout>
 
 </RelativeLayout>

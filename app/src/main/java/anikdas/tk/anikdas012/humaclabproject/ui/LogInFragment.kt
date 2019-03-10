@@ -15,11 +15,13 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.AppCompatTextView
 
 import anikdas.tk.anikdas012.humaclabproject.R
+import com.android.volley.NetworkResponse
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import java.net.HttpURLConnection
 
 /**
  * Created by "Anik Das" on 10-Mar-2019
@@ -102,6 +104,10 @@ class LogInFragment : Fragment() {
                 header["Content-Type"] = "application/json"
                 header["Authorization"] = basicAuth
                 return header
+            }
+
+            override fun parseNetworkResponse(response: NetworkResponse?): Response<String> {
+                return super.parseNetworkResponse(response)
             }
         }
 

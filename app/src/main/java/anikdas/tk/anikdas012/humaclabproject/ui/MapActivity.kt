@@ -59,7 +59,10 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
     }
 
-    
+
+    /**
+     * This method will show user's current location
+     */
     fun showCurrentLocation(location: Location) {
 
     }

@@ -13,6 +13,9 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.AppCompatTextView
 
 import anikdas.tk.anikdas012.humaclabproject.R
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
 
 /**
  * Created by "Anik Das" on 10-Mar-2019
@@ -64,6 +67,9 @@ class LogInFragment : Fragment() {
 //        Basic atuh of user credential
         val userCredential = "${tvUserName.text} : ${tvPassword.text}"
         val basicAuth = "Basic ${Base64.encodeToString(userCredential.toByteArray(), Base64.DEFAULT)}"
+
+//        Api url
+        val url = "http://test.selliscope.com/api/v1/login"
     }
 
 

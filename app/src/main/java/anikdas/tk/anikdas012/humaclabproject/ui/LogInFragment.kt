@@ -3,6 +3,7 @@ package anikdas.tk.anikdas012.humaclabproject.ui
 
 import android.os.Bundle
 import android.util.Base64
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -26,6 +27,7 @@ import com.android.volley.toolbox.Volley
 
 class LogInFragment : Fragment() {
 
+    val LOG_TAG = "LogIn_Fragment"
     lateinit var tvUserName: AppCompatEditText
     lateinit var tvPassword: AppCompatEditText
     lateinit var btLogIn: AppCompatButton
@@ -36,6 +38,7 @@ class LogInFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        Log.d(LOG_TAG, "onCreateView")
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_log_in, container, false)
 
@@ -71,6 +74,7 @@ class LogInFragment : Fragment() {
      * a new fragment to show current location.
      */
     private fun logIn() {
+        Log.d(LOG_TAG, "logIn")
 //        Basic atuh of user credential
         val userCredential = "${tvUserName.text} : ${tvPassword.text}"
         val basicAuth = "Basic ${Base64.encodeToString(userCredential.toByteArray(), Base64.DEFAULT)}"
@@ -81,10 +85,10 @@ class LogInFragment : Fragment() {
 //        Requesting to server
         val request = object : StringRequest(Request.Method.POST, url,
                                 Response.Listener {
-
+                                    Log.d(LOG_TAG, "onResponse")
                                 },
                                 Response.ErrorListener {
-
+                                    Log.d(LOG_TAG, "onError")
                                 }) {
             override fun getHeaders(): MutableMap<String, String> {
                 val header: HashMap<String, String> = HashMap()

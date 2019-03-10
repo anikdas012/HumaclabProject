@@ -18,9 +18,9 @@ import anikdas.tk.anikdas012.humaclabproject.R
 
 class LogInFragment : Fragment() {
 
-    lateinit var userName: AppCompatEditText
-    lateinit var password: AppCompatEditText
-    lateinit var logIn: AppCompatButton
+    lateinit var tvUserName: AppCompatEditText
+    lateinit var tvPassword: AppCompatEditText
+    lateinit var btLogIn: AppCompatButton
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,9 +30,9 @@ class LogInFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_log_in, container, false)
 
 //        Initializing views
-        userName = view.findViewById(R.id.user_name)
-        password = view.findViewById(R.id.password)
-        logIn = view.findViewById(R.id.log_in)
+        tvUserName = view.findViewById(R.id.user_name)
+        tvPassword = view.findViewById(R.id.password)
+        btLogIn = view.findViewById(R.id.log_in)
 
         return view
     }

@@ -61,6 +61,9 @@ class LogInFragment : Fragment() {
      * a new fragment to show current location.
      */
     private fun logIn() {
+//        Basic atuh of user credential
+        val userCredential = "${tvUserName.text} : ${tvPassword.text}"
+        val basicAuth = "Basic ${Base64.encodeToString(userCredential.toByteArray(), Base64.DEFAULT)}"
     }
 
 

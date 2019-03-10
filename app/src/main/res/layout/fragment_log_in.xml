@@ -25,7 +25,8 @@
 			    android:textColorHint="@color/colorHint"
 			    android:fontFamily="@font/sniglet_regular"
 			    android:textSize="20sp"
-			    android:layout_marginBottom="5dp"/>
+			    android:layout_marginBottom="5dp"
+			    android:background="@drawable/background"/>
 
 	    <androidx.appcompat.widget.AppCompatEditText
 			    android:layout_width="match_parent"
@@ -36,8 +37,8 @@
 			    android:textColor="@color/colorWhite"
 			    android:textColorHint="@color/colorHint"
 			    android:fontFamily="@font/sniglet_regular"
-			    android:textSize="20sp"/>
-
+			    android:textSize="20sp"
+			    android:background="@drawable/background"/>
 	    <androidx.appcompat.widget.AppCompatButton
 			    android:layout_width="match_parent"
 			    android:layout_height="60dp"

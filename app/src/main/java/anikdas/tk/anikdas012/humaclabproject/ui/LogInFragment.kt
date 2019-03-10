@@ -14,8 +14,10 @@ import androidx.appcompat.widget.AppCompatTextView
 
 import anikdas.tk.anikdas012.humaclabproject.R
 import com.android.volley.Request
+import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 
 /**
  * Created by "Anik Das" on 10-Mar-2019
@@ -28,6 +30,7 @@ class LogInFragment : Fragment() {
     lateinit var tvPassword: AppCompatEditText
     lateinit var btLogIn: AppCompatButton
     lateinit var progressBar: ProgressBar
+    lateinit var  mRequest: RequestQueue
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,6 +56,10 @@ class LogInFragment : Fragment() {
                 tvWarning.visibility = View.VISIBLE
             }
         }
+
+//        New request queue of volley
+        mRequest = Volley.newRequestQueue(context)
+        mRequest.start()
 
         return view
     }

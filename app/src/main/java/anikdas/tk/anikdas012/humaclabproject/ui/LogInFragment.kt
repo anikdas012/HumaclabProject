@@ -2,12 +2,14 @@ package anikdas.tk.anikdas012.humaclabproject.ui
 
 
 import android.os.Bundle
+import android.util.Base64
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatEditText
+import androidx.appcompat.widget.AppCompatTextView
 
 import anikdas.tk.anikdas012.humaclabproject.R
 
@@ -33,10 +35,15 @@ class LogInFragment : Fragment() {
         tvUserName = view.findViewById(R.id.user_name)
         tvPassword = view.findViewById(R.id.password)
         btLogIn = view.findViewById(R.id.log_in)
+        val tvWarning: AppCompatTextView = view.findViewById(R.id.warning_text)
 
 //        Adding click listener to button
         btLogIn.setOnClickListener {
-            logIn()
+            if (tvUserName.text!!.isNotEmpty() && tvPassword.text!!.isNotEmpty()) {
+                logIn()
+            } else {
+                tvWarning.visibility = View.VISIBLE
+            }
         }
 
         return view
@@ -49,7 +56,6 @@ class LogInFragment : Fragment() {
      * a new fragment to show current location.
      */
     private fun logIn() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 

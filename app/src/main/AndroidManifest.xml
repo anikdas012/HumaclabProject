@@ -17,6 +17,8 @@
             android:supportsRtl="true"
             android:hardwareAccelerated="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".ui.MapActivity">
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

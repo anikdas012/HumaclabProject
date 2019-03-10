@@ -79,7 +79,7 @@ class LogInFragment : Fragment() {
     private fun logIn() {
         Log.d(LOG_TAG, "logIn")
 //        Basic atuh of user credential
-        val userCredential = "${tvUserName.text} : ${tvPassword.text}"
+        val userCredential = "${tvUserName.text}:${tvPassword.text}"
         val basicAuth = "Basic ${Base64.encodeToString(userCredential.toByteArray(), Base64.DEFAULT)}"
 
 //        Api url

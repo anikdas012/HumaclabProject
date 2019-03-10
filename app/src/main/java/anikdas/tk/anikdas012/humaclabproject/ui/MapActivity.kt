@@ -63,7 +63,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
      */
     override fun onMapReady(googleMap: GoogleMap?) {
         map = googleMap!!
-        map.setMyLocationEnabled(true)
+        map.isMyLocationEnabled = true
         map.setOnMyLocationButtonClickListener(this)
         map.setOnMyLocationClickListener(this)
     }

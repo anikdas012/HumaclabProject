@@ -39,6 +39,18 @@
 			    android:fontFamily="@font/sniglet_regular"
 			    android:textSize="20sp"
 			    android:background="@drawable/background"/>
+
+	    <androidx.appcompat.widget.AppCompatTextView
+			    android:layout_width="match_parent"
+			    android:layout_height="25dp"
+			    android:id="@+id/warning_text"
+			    android:text="&#42; Fill user name and password"
+			    android:textColor="@color/colorRed"
+			    android:textSize="16sp"
+			    android:fontFamily="@font/sniglet_regular"
+			    android:layout_marginTop="2dp"
+			    android:visibility="gone"/>
+
 	    <androidx.appcompat.widget.AppCompatButton
 			    android:layout_width="match_parent"
 			    android:layout_height="60dp"

@@ -9,6 +9,9 @@ import com.google.android.gms.location.*
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 
 /**
  * Created by "Anik Das" on 11-Mar-2019
@@ -18,11 +21,12 @@ import com.google.android.gms.maps.OnMapReadyCallback
 
 class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
-    lateinit var map: MapView
+    lateinit var map: GoogleMap
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     lateinit var requestCallback: LocationCallback
     lateinit var locationRequest: LocationRequest
     lateinit var locationManager: LocationManager
+    var marker: Marker? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,8 +51,9 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
 //        Initialing view components
-        map = findViewById(R.id.map)
-        map.getMapAsync(this)
+        val mapFragment = supportFragmentManager
+            .findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
     }
 
 
@@ -56,7 +61,10 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
      * This method will be called when map is ready
      */
     override fun onMapReady(googleMap: GoogleMap?) {
-
+        map = googleMap!!
+        map.setMyLocationEnabled(true)
+        map.setOnMyLocationButtonClickListener(this)
+        map.setOnMyLocationClickListener(this)
     }
 
 
@@ -64,6 +72,5 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
      * This method will show user's current location
      */
     fun showCurrentLocation(location: Location) {
-
     }
 }

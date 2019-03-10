@@ -58,6 +58,7 @@ class LogInFragment : Fragment() {
                 progressBar.visibility = View.VISIBLE
                 logIn()
             } else {
+                tvWarning.text = "* Fill user name and password"
                 tvWarning.visibility = View.VISIBLE
             }
         }
@@ -93,7 +94,7 @@ class LogInFragment : Fragment() {
                                 Response.ErrorListener {error ->
                                     Log.d(LOG_TAG, "onError: ${error.message}")
                                     progressBar.visibility = View.GONE
-                                    tvWarning.text = "Incorrect username or password"
+                                    tvWarning.text = "* Incorrect username or password"
                                     tvWarning.visibility = View.VISIBLE
                                 }) {
             override fun getHeaders(): MutableMap<String, String> {

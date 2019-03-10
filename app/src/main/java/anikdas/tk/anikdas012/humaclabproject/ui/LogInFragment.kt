@@ -84,11 +84,11 @@ class LogInFragment : Fragment() {
 
 //        Requesting to server
         val request = object : StringRequest(Request.Method.POST, url,
-                                Response.Listener {
-                                    Log.d(LOG_TAG, "onResponse")
+                                Response.Listener { response ->
+                                    Log.d(LOG_TAG, "onResponse: ${response}")
                                 },
-                                Response.ErrorListener {
-                                    Log.d(LOG_TAG, "onError")
+                                Response.ErrorListener {error ->
+                                    Log.d(LOG_TAG, "onError: ${error.message}")
                                 }) {
             override fun getHeaders(): MutableMap<String, String> {
                 val header: HashMap<String, String> = HashMap()

@@ -109,6 +109,9 @@ class LogInFragment : Fragment() {
             override fun parseNetworkResponse(response: NetworkResponse?): Response<String> {
                 if (response!!.statusCode == HttpURLConnection.HTTP_ACCEPTED) {
                     Log.d(LOG_TAG, "parseNetworkResponse: ${response.statusCode}")
+                    activity!!.supportFragmentManager.beginTransaction()
+                        .replace(R.id.place_holder, MapFragment(), "Map_Fragment")
+                        .commit()
                 }
                 return super.parseNetworkResponse(response)
             }

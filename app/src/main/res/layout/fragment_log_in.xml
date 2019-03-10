@@ -38,6 +38,7 @@
 			    android:textColorHint="@color/colorHint"
 			    android:fontFamily="@font/sniglet_regular"
 			    android:textSize="20sp"
+			    android:layout_marginTop="5dp"
 			    android:background="@drawable/background"/>
 
 	    <androidx.appcompat.widget.AppCompatTextView

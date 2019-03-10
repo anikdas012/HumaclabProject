@@ -109,21 +109,12 @@ class LogInFragment : Fragment() {
             override fun parseNetworkResponse(response: NetworkResponse?): Response<String> {
                 if (response!!.statusCode == HttpURLConnection.HTTP_ACCEPTED) {
                     Log.d(LOG_TAG, "parseNetworkResponse: ${response.statusCode}")
-                    showMap()
                 }
                 return super.parseNetworkResponse(response)
             }
         }
 
         mRequest.add(request)
-    }
-
-
-    /**
-     * This method will show MapFragment
-     */
-    private fun showMap(){
-
     }
 
 

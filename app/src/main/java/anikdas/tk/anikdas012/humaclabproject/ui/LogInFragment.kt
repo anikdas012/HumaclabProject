@@ -118,7 +118,10 @@ class LogInFragment : Fragment() {
         mRequest.add(request)
     }
 
-    
+
+    /**
+     * This method will show MapFragment
+     */
     private fun showMap(){
 
     }

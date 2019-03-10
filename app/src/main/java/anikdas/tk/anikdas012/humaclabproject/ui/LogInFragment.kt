@@ -77,6 +77,24 @@ class LogInFragment : Fragment() {
 
 //        Api url
         val url = "http://test.selliscope.com/api/v1/login"
+
+//        Requesting to server
+        val request = object : StringRequest(Request.Method.POST, url,
+                                Response.Listener {
+
+                                },
+                                Response.ErrorListener {
+
+                                }) {
+            override fun getHeaders(): MutableMap<String, String> {
+                val header: HashMap<String, String> = HashMap()
+                header["Content-Type"] = "application/json"
+                header["Authorization"] = basicAuth
+                return header
+            }
+        }
+
+        mRequest.add(request)
     }
 
 

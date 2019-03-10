@@ -45,7 +45,6 @@
 			    android:layout_width="match_parent"
 			    android:layout_height="25dp"
 			    android:id="@+id/warning_text"
-			    android:text="&#42; Fill user name and password"
 			    android:textColor="@color/colorRed"
 			    android:textSize="16sp"
 			    android:fontFamily="@font/sniglet_regular"

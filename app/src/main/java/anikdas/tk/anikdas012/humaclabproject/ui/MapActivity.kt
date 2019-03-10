@@ -1,6 +1,7 @@
 package anikdas.tk.anikdas012.humaclabproject.ui
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationManager
@@ -78,6 +79,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     /**
      * This method will be called when map is ready
      */
+    @SuppressLint("MissingPermission")
     override fun onMapReady(googleMap: GoogleMap?) {
         map = googleMap!!
         map.isMyLocationEnabled = true

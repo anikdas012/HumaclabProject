@@ -62,6 +62,18 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
 
+    @SuppressLint("MissingPermission")
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        if (requestCode == 10) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                map.isMyLocationEnabled = true
+                map.setOnMyLocationButtonClickListener(this)
+                map.setOnMyLocationClickListener(this)
+            }
+        }
+    }
+
+
     /**
      * This method will be called when map is ready
      */

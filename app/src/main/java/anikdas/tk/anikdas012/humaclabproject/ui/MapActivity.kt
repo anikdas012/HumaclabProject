@@ -5,6 +5,7 @@ import android.os.Bundle
 import anikdas.tk.anikdas012.humaclabproject.R
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
+import com.google.android.gms.maps.OnMapReadyCallback
 
 /**
  * Created by "Anik Das" on 11-Mar-2019
@@ -12,7 +13,7 @@ import com.google.android.gms.maps.MapView
  */
 
 
-class MapActivity : AppCompatActivity() {
+class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
     lateinit var map: MapView
 
@@ -23,5 +24,13 @@ class MapActivity : AppCompatActivity() {
 //        Initialing view components
         map = findViewById(R.id.map)
         map.getMapAsync(this)
+    }
+
+
+    /**
+     * This method will be called when map is ready
+     */
+    override fun onMapReady(p0: GoogleMap?) {
+        
     }
 }

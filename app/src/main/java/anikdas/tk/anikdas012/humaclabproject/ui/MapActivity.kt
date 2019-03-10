@@ -59,32 +59,28 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-
-//        Adding permission check
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-    //                Checking permission of gps
-                    requestPermissions( arrayOf(
-                        Manifest.permission.ACCESS_FINE_LOCATION,
-                        Manifest.permission.ACCESS_COARSE_LOCATION,
-                        Manifest.permission.INTERNET
-                    ), 10)
-                    return
-                }
-            }
     }
 
 
     /**
      * This method will be called when map is ready
      */
-    @SuppressLint("MissingPermission")
     override fun onMapReady(googleMap: GoogleMap?) {
         map = googleMap!!
-        map.isMyLocationEnabled = true
-        map.setOnMyLocationButtonClickListener(this)
-        map.setOnMyLocationClickListener(this)
+
+//        Adding permission check
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                //                Checking permission of gps
+                requestPermissions( arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.INTERNET
+                ), 10)
+                return
+            }
+        }
     }
 
 

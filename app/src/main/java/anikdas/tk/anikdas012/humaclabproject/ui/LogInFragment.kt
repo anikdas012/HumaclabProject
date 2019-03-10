@@ -43,7 +43,11 @@ class LogInFragment : Fragment() {
     }
 
 
-
+    /**
+     * This function handles log in.
+     * After successful login it starts
+     * a new fragment to show current location.
+     */
     private fun logIn() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }

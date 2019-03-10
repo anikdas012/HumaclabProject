@@ -1,5 +1,6 @@
 package anikdas.tk.anikdas012.humaclabproject.ui
 
+import android.location.Location
 import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -55,6 +56,11 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
      * This method will be called when map is ready
      */
     override fun onMapReady(googleMap: GoogleMap?) {
+
+    }
+
+    
+    fun showCurrentLocation(location: Location) {
 
     }
 }

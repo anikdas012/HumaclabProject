@@ -27,6 +27,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     lateinit var locationRequest: LocationRequest
     lateinit var locationManager: LocationManager
     var marker: Marker? = null
+    lateinit var location: Location
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +45,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         requestCallback = object : LocationCallback() {
             override fun onLocationResult(locationRequest: LocationResult?) {
                 super.onLocationResult(locationRequest)
-                val location = locationRequest!!.lastLocation
+                location = locationRequest!!.lastLocation
             }
         }
         locationManager = getSystemService(LOCATION_SERVICE) as LocationManager

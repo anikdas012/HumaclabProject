@@ -94,6 +94,7 @@ class LogInFragment : Fragment() {
                                     Log.d(LOG_TAG, "onError: ${error.message}")
                                     progressBar.visibility = View.GONE
                                     tvWarning.text = "Incorrect username or password"
+                                    tvWarning.visibility = View.VISIBLE
                                 }) {
             override fun getHeaders(): MutableMap<String, String> {
                 val header: HashMap<String, String> = HashMap()

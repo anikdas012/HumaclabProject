@@ -52,6 +52,9 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
                 super.onLocationResult(locationRequest)
                 Log.d(LOG_TAG, "onLocationResult")
                 location = locationRequest!!.lastLocation
+
+//                Moving camera
+                map.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location!!.latitude, location!!.longitude), 12.0f))
             }
         }
         locationManager = getSystemService(LOCATION_SERVICE) as LocationManager
@@ -112,6 +115,11 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
 
     override fun onMyLocationButtonClick(): Boolean {
         Log.d(LOG_TAG, "onMyLocationButtonClick")
+        
+//        Moving camera
+        if (location != null) {
+            map.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location!!.latitude, location!!.longitude), 12.0f))
+        }
         return false
     }
 }

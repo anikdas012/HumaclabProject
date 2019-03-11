@@ -115,14 +115,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
     }
 
 
-    /**
-     * This method will show user's current location
-     */
-    fun showCurrentLocation(location: Location) {
-        Log.d(LOG_TAG, "showCurrentLocation")
-    }
-
-
 
     override fun onMyLocationClick(location: Location) {
         Log.d(LOG_TAG, "onMyLoacationClick")

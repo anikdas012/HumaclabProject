@@ -101,6 +101,14 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
                 return
             }
         }
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M ||
+            (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+                    && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)) {
+            map.isMyLocationEnabled = true
+            map.setOnMyLocationButtonClickListener(this)
+            map.setOnMyLocationClickListener(this)
+        }
     }
 
 

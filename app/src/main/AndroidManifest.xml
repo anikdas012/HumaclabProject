@@ -26,10 +26,8 @@
                 android:name="com.google.android.geo.API_KEY"
                 android:value="AIzaSyCw04gFEPzzI26SVgMD82x17NFce9k-LDI"/>
 
-        <activity
-                android:name=".ui.MapActivity"
-                android:hardwareAccelerated="false">
-        </activity>
+        <activity android:name=".ui.MapActivity"/>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

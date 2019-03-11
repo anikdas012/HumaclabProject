@@ -14,7 +14,6 @@ import com.google.android.gms.location.*
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.MarkerOptions
 
 /**
  * Created by "Anik Das" on 11-Mar-2019
@@ -30,7 +29,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
     lateinit var requestCallback: LocationCallback
     lateinit var locationRequest: LocationRequest
     lateinit var locationManager: LocationManager
-    var marker: Marker? = null
     var location: Location? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -115,7 +113,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
 
     override fun onMyLocationButtonClick(): Boolean {
         Log.d(LOG_TAG, "onMyLocationButtonClick")
-        
+
 //        Moving camera
         if (location != null) {
             map.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location!!.latitude, location!!.longitude), 12.0f))

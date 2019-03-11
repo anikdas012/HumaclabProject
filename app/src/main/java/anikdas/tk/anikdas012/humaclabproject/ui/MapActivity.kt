@@ -86,6 +86,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
     override fun onMapReady(googleMap: GoogleMap?) {
         Log.d(LOG_TAG, "onMapReady")
         map = googleMap!!
+        map.mapType = GoogleMap.MAP_TYPE_NORMAL
 
 //        Adding permission check
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

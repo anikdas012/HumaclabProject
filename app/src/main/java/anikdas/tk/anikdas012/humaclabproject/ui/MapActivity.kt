@@ -11,12 +11,10 @@ import android.os.Bundle
 import android.util.Log
 import anikdas.tk.anikdas012.humaclabproject.R
 import com.google.android.gms.location.*
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.MapView
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
+import com.google.android.gms.maps.model.MarkerOptions
 
 /**
  * Created by "Anik Das" on 11-Mar-2019
@@ -112,7 +110,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
 
 
 
-    override fun onMyLocationClick(p0: Location) {
+    override fun onMyLocationClick(location: Location) {
         Log.d(LOG_TAG, "onMyLoacationClick")
     }
 

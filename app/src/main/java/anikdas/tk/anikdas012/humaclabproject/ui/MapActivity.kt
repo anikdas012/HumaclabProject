@@ -122,6 +122,9 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
         marker = map.addMarker(MarkerOptions()
             .position(LatLng(location.latitude, location.longitude))
             .title("Your location"))
+
+//        Moving camera
+        map.animateCamera(CameraUpdateFactory.newLatLng(LatLng(location.latitude, location.longitude)))
     }
 
     override fun onMyLocationButtonClick(): Boolean {

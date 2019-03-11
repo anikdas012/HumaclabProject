@@ -141,6 +141,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
 
     override fun onMyLocationButtonClick(): Boolean {
         Log.d(LOG_TAG, "onMyLocationButtonClick")
-        return true
+        return false
     }
 }

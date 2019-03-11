@@ -114,6 +114,10 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
 
     override fun onMyLocationClick(location: Location) {
         Log.d(LOG_TAG, "onMyLoacationClick")
+//        Removing previous marker
+        if (marker != null) {
+            marker!!.remove()
+        }
     }
 
     override fun onMyLocationButtonClick(): Boolean {

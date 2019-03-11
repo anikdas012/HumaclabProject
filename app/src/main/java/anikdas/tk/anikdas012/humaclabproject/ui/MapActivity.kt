@@ -22,8 +22,7 @@ import com.google.android.gms.maps.model.MarkerOptions
  */
 
 
-class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener,
-    GoogleMap.OnMyLocationClickListener {
+class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener {
 
     val LOG_TAG = "Map_Activity"
     lateinit var map: GoogleMap
@@ -32,7 +31,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
     lateinit var locationRequest: LocationRequest
     lateinit var locationManager: LocationManager
     var marker: Marker? = null
-    lateinit var location: Location
+    var location: Location? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d(LOG_TAG, "onCreate")
@@ -53,8 +52,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
                 super.onLocationResult(locationRequest)
                 Log.d(LOG_TAG, "onLocationResult")
                 location = locationRequest!!.lastLocation
-//                Showing new location
-                onMyLocationClick(location)
             }
         }
         locationManager = getSystemService(LOCATION_SERVICE) as LocationManager
@@ -74,7 +71,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 map.isMyLocationEnabled = true
                 map.setOnMyLocationButtonClickListener(this)
-                map.setOnMyLocationClickListener(this)
             }
         }
     }
@@ -107,29 +103,12 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
                     && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)) {
             map.isMyLocationEnabled = true
             map.setOnMyLocationButtonClickListener(this)
-            map.setOnMyLocationClickListener(this)
         }
 
 //        Fixing BD on map
         map.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(23.777681, 90.398005), 7.0f))
     }
 
-
-
-    override fun onMyLocationClick(location: Location) {
-        Log.d(LOG_TAG, "onMyLoacationClick")
-//        Removing previous marker
-        if (marker != null) {
-            marker!!.remove()
-        }
-//        Adding new marker
-        marker = map.addMarker(MarkerOptions()
-            .position(LatLng(location.latitude, location.longitude))
-            .title("Your location"))
-
-//        Moving camera
-        map.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude, location.longitude), 12.0f))
-    }
 
     override fun onMyLocationButtonClick(): Boolean {
         Log.d(LOG_TAG, "onMyLocationButtonClick")

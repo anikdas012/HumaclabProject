@@ -118,6 +118,10 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
         if (marker != null) {
             marker!!.remove()
         }
+//        Adding new marker
+        marker = map.addMarker(MarkerOptions()
+            .position(LatLng(location.latitude, location.longitude))
+            .title("Your location"))
     }
 
     override fun onMyLocationButtonClick(): Boolean {

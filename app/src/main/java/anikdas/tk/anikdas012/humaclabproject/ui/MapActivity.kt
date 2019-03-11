@@ -45,7 +45,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
 //        Creating new location request object
         locationRequest = LocationRequest()
         locationRequest.interval = 10000
-        locationRequest.fastestInterval = 10000
+        locationRequest.fastestInterval = 1000
         locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
 //        Creating call back method for location services
         requestCallback = object : LocationCallback() {

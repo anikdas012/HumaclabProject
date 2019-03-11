@@ -53,6 +53,8 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
                 super.onLocationResult(locationRequest)
                 Log.d(LOG_TAG, "onLocationResult")
                 location = locationRequest!!.lastLocation
+//                Showing new location
+                onMyLocationClick(location)
             }
         }
         locationManager = getSystemService(LOCATION_SERVICE) as LocationManager

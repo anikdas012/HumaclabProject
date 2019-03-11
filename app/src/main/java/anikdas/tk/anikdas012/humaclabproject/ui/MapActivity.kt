@@ -8,6 +8,7 @@ import android.location.LocationManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import anikdas.tk.anikdas012.humaclabproject.R
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.GoogleMap
@@ -26,6 +27,7 @@ import com.google.android.gms.maps.model.Marker
 class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener,
     GoogleMap.OnMyLocationClickListener {
 
+    val LOG_TAG = "Map_Activity"
     lateinit var map: GoogleMap
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     lateinit var requestCallback: LocationCallback
@@ -35,6 +37,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
     lateinit var location: Location
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.d(LOG_TAG, "onCreate")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
 
@@ -50,6 +53,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
         requestCallback = object : LocationCallback() {
             override fun onLocationResult(locationRequest: LocationResult?) {
                 super.onLocationResult(locationRequest)
+                Log.d(LOG_TAG, "onLocationResult")
                 location = locationRequest!!.lastLocation
             }
         }
@@ -65,6 +69,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
 
     @SuppressLint("MissingPermission")
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        Log.d(LOG_TAG, "onRequestPermissionResult")
         if (requestCode == 10) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 map.isMyLocationEnabled = true
@@ -79,6 +84,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
      * This method will be called when map is ready
      */
     override fun onMapReady(googleMap: GoogleMap?) {
+        Log.d(LOG_TAG, "onMapReady")
         map = googleMap!!
 
 //        Adding permission check
@@ -101,15 +107,17 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
      * This method will show user's current location
      */
     fun showCurrentLocation(location: Location) {
+        Log.d(LOG_TAG, "showCurrentLocation")
     }
 
 
 
     override fun onMyLocationClick(p0: Location) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Log.d(LOG_TAG, "onMyLoacationClick")
     }
 
     override fun onMyLocationButtonClick(): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Log.d(LOG_TAG, "onMyLocationButtonClick")
+        return true
     }
 }

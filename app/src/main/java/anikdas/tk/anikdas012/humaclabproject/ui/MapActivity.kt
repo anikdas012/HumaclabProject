@@ -109,6 +109,9 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocat
             map.setOnMyLocationButtonClickListener(this)
             map.setOnMyLocationClickListener(this)
         }
+
+//        Fixing BD on map
+        map.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(23.777681, 90.398005), 7.0f))
     }
 
 

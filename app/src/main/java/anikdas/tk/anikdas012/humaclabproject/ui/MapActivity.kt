@@ -13,7 +13,6 @@ import anikdas.tk.anikdas012.humaclabproject.R
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
 
 /**
  * Created by "Anik Das" on 11-Mar-2019
